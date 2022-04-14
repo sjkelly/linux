@@ -1381,7 +1381,7 @@ static bool inherit_taint(struct module *mod, struct module *owner)
 	if (mod->using_gplonly_symbols) {
 		pr_err("%s: module using GPL-only symbols uses symbols from proprietary module %s.\n",
 			mod->name, owner->name);
-		return false;
+		return true;
 	}
 
 	if (!test_bit(TAINT_PROPRIETARY_MODULE, &mod->taints)) {
